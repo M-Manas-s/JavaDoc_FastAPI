@@ -10,125 +10,125 @@ from fastapi.responses import PlainTextResponse
 
 app = FastAPI()
 origins = [
-    "http://localhost:3001",
-    "http://localhost:3000",
+  "http://localhost:3001",
+  "http://localhost:3000",
 ]
 
-imports = {     "thread" : "java.lang.*;",
-                "regex" : "java.util.regex.*;",
-                "math" : "java.math.*;",
-                "linkedlist" : "java.util.LinkedList;",
-                "scanner" : "java.util.Scanner;",
-                "array" : "java.util.Arrays;",
-                "set" : "java.util.TreeSet;",
-                "hashset" : "java.util.HashSet;",
-                "hashmap" : "java.util.HashMap;",
-                "treemap" : "java.util.TreeMap;",
-                "orderedset" : "java.util.TreeSet;",
-                "unorderedset" : "java.util.HashSet;",
-                "arraylist" : "java.util.ArrayList;",
-                "mimeencodes" : "java.util.Base64;",
-                "exception" : "java.util.*;",
-                "customexception" : "java.util.*;",
-                "thread" : "java.util.*;",
-                "stack" : "java.util.*;",
-                "jdbc" : "java.sql.*;",
-                 }
+imports = {   "thread" : "java.lang.*;",
+      "regex" : "java.util.regex.*;",
+      "math" : "java.math.*;",
+      "linkedlist" : "java.util.LinkedList;",
+      "scanner" : "java.util.Scanner;",
+      "array" : "java.util.Arrays;",
+      "set" : "java.util.TreeSet;",
+      "hashset" : "java.util.HashSet;",
+      "hashmap" : "java.util.HashMap;",
+      "treemap" : "java.util.TreeMap;",
+      "orderedset" : "java.util.TreeSet;",
+      "unorderedset" : "java.util.HashSet;",
+      "arraylist" : "java.util.ArrayList;",
+      "mimeencodes" : "java.util.Base64;",
+      "exception" : "java.util.*;",
+      "customexception" : "java.util.*;",
+      "thread" : "java.util.*;",
+      "stack" : "java.util.*;",
+      "jdbc" : "java.sql.*;",
+       }
 
-exception = [   "NumberFormatException", 
-                "ArithmeticException", 
-                "InputMismatchException", 
-                "ArrayIndexOutOfBoundsException" ]
+exception = [ "NumberFormatException", 
+      "ArithmeticException", 
+      "InputMismatchException", 
+      "ArrayIndexOutOfBoundsException" ]
 
-codes = {    "scanner" : "  Scanner sc = new Scanner(System.in);",
-            "array" : " int arr[] = new int[5];",
-            "linkedlist" : "LinkedList<String> list=new LinkedList<String>();",
-            "swap" : "Collections.swap(list,1,4);",
-            "sort" : "Collections.sort(list);",
-            "reverse" : "Collections.reverse(list);",
-            "shuffle" : "Collections.shuffle(list);",
-            "binarysearch" : "Collections.binarySearch(list, \"A\");",
-            "revsort" : "Collections.sort(list,Collections.reverseOrder());",
-            "set" : "TreeSet<Integer> ts=new TreeSet<Integer>();",
-            "hashset" : "HashSet<Integer> hs=new HashSet<Integer>();",
-            "hashmap" : "HashMap<Integer,Integer> hm=new HashMap<Integer,Integer>();",
-            "hashmapput" : "hm.put(1,2);",
-            "hashmapinsert" : "hm.put(1,2);",
-            "hashmapget" : "hm.get(1);",
-            "treemap" : "TreeMap<Character,Integer> map=new TreeMap<Character,Integer>();",
-            "orderedset" : "TreeSet<Integer> ts = new TreeSet<Integer>();",
-            "unorderedset" : "HashSet<Integer> hs=new HashSet<Integer>();",
-            "setadd" : "ts.add(1);",
-            "setremove" : "ts.remove(1);",
-            "setaddall" : "ts.addAll(hs);",
-            "setremoveall" : "ts.removeAll(hs);",
-            "setretainall" : "ts.retainAll(hs);",
-            "linetochararray" : " for(char c : line.toCharArray())",
-            "arraylist" : "ArrayList<Integer> list=new ArrayList<Integer>();",
-            "arraylistadd" : "list.add(1);",
-            "arraylistget" : "list.get(1);",
-            "arraylistremove" : "list.remove(1);",
-            "loopmap" : "for(Map.Entry<Character,Integer> entry : map.entrySet()) System.out.print(entry.getKey() +\":\"+entry.getValue()+" ");",
-            "loopset" : "for(Integer i : ts) System.out.print(i+\" \");",
-            "customexception" : """class DivisiblebyFiveException extends Exception 
-                            {
-                                public DivisiblebyFiveException(String message)
-                                {
-                                    super(message);
-                                }
-                            }""",
-            "jdbc" : """Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/ri_db","test","test123");
-            Statement st=con.createStatement();
-            ResultSet rs=st.executeQuery("select name,phone from students where sid="+id);
-            while(rs.next())
-                System.out.println(rs.getString(1)+" "+rs.getString(2));
-            st.close();
-            con.close()""",
-            "jdbcdrivermanager" : "Connection conn = DriverManager.getConnection(url, uname, pass);",
-            "jdbcstatement" : "Statement st = conn.createStatement();",
-            "jdbcresultset" : "ResultSet rs = st.executeQuery(query);",
-            "jdbcwhile" : "while(rs.next())",
-            "jdbcinsert" : "st.executeUpdate(\"insert into students values(1,'Rishabh','1234567890')\");",
-            "jdbcupdate" : "int count = st.executeUpdate(\"update students set name='Rishabh' where sid=1\");",
-            "throwexception" : "throw new Exception(\"n or p should not be negative.\");",
-            "sortedlist" : "Collections.sort(list); ArrayList<Integer> list = new ArrayList<Integer>(treeSet);",
-            "thread" : """ class B extends Thread
-                        {
-                            public void run()
-                            {
-                                for(int i=1;i<=10;i++)
-                                {
-                                    System.out.print(" "+i*5);
-                                }
-                            }
-                        }
-                        """,
-            "threadstart" : "B b=new B();b.start();",
-            "queue" : "Queue<Integer> queue = new LinkedList<>();",
-            "queueadd" : "queue.add(1);",
-            "queuefront" : "queue.remove();",
-            "queuepop" : "queue.remove();",
-            "stack" : "Stack<Character> stack = new Stack<>();",
-            "stackpush" : "stack.push(c);",
-            "stackpop" : "stack.pop();",
-            "stackempty" : "stack.isEmpty();",
-            "testcasesstring" : "while(scanner.hasNextLine())",
-            "testcasesint" : "sc.hasNextInt()",
-            "mimeencodes" : """Base64.Encoder encoder = Base64.getMimeEncoder();  
-                            String message = ip.next();
-                            String eStr = encoder.encodeToString(message.getBytes());""",
-            "throwexception" : "throw new DivisiblebyFiveException(\"Number should not be divide by five\");"  }
+codes = {  "scanner" : "  Scanner sc = new Scanner(System.in);",
+    "array" : " int arr[] = new int[5];",
+    "linkedlist" : "LinkedList<String> list=new LinkedList<String>();",
+    "swap" : "Collections.swap(list,1,4);",
+    "sort" : "Collections.sort(list);",
+    "reverse" : "Collections.reverse(list);",
+    "shuffle" : "Collections.shuffle(list);",
+    "binarysearch" : "Collections.binarySearch(list, \"A\");",
+    "revsort" : "Collections.sort(list,Collections.reverseOrder());",
+    "set" : "TreeSet<Integer> ts=new TreeSet<Integer>();",
+    "hashset" : "HashSet<Integer> hs=new HashSet<Integer>();",
+    "hashmap" : "HashMap<Integer,Integer> hm=new HashMap<Integer,Integer>();",
+    "hashmapput" : "hm.put(1,2);",
+    "hashmapinsert" : "hm.put(1,2);",
+    "hashmapget" : "hm.get(1);",
+    "treemap" : "TreeMap<Character,Integer> map=new TreeMap<Character,Integer>();",
+    "orderedset" : "TreeSet<Integer> ts = new TreeSet<Integer>();",
+    "unorderedset" : "HashSet<Integer> hs=new HashSet<Integer>();",
+    "setadd" : "ts.add(1);",
+    "setremove" : "ts.remove(1);",
+    "setaddall" : "ts.addAll(hs);",
+    "setremoveall" : "ts.removeAll(hs);",
+    "setretainall" : "ts.retainAll(hs);",
+    "linetochararray" : " for(char c : line.toCharArray())",
+    "arraylist" : "ArrayList<Integer> list=new ArrayList<Integer>();",
+    "arraylistadd" : "list.add(1);",
+    "arraylistget" : "list.get(1);",
+    "arraylistremove" : "list.remove(1);",
+    "loopmap" : "for(Map.Entry<Character,Integer> entry : map.entrySet()) System.out.print(entry.getKey() +\":\"+entry.getValue()+" ");",
+    "loopset" : "for(Integer i : ts) System.out.print(i+\" \");",
+    "customexception" : """class DivisiblebyFiveException extends Exception 
+          {
+            public DivisiblebyFiveException(String message)
+            {
+            super(message);
+            }
+          }""",
+    "jdbc" : """Class.forName("com.mysql.jdbc.Driver");
+    Connection con = DriverManager.getConnection("jdbc:mysql://localhost/ri_db","test","test123");
+    Statement st=con.createStatement();
+    ResultSet rs=st.executeQuery("select name,phone from students where sid="+id);
+    while(rs.next())
+      System.out.println(rs.getString(1)+" "+rs.getString(2));
+    st.close();
+    con.close()""",
+    "jdbcdrivermanager" : "Connection conn = DriverManager.getConnection(url, uname, pass);",
+    "jdbcstatement" : "Statement st = conn.createStatement();",
+    "jdbcresultset" : "ResultSet rs = st.executeQuery(query);",
+    "jdbcwhile" : "while(rs.next())",
+    "jdbcinsert" : "st.executeUpdate(\"insert into students values(1,'Rishabh','1234567890')\");",
+    "jdbcupdate" : "int count = st.executeUpdate(\"update students set name='Rishabh' where sid=1\");",
+    "throwexception" : "throw new Exception(\"n or p should not be negative.\");",
+    "sortedlist" : "Collections.sort(list); ArrayList<Integer> list = new ArrayList<Integer>(treeSet);",
+    "thread" : """ class B extends Thread
+        {
+          public void run()
+          {
+            for(int i=1;i<=10;i++)
+            {
+            System.out.print(" "+i*5);
+            }
+          }
+        }
+        """,
+    "threadstart" : "B b=new B();b.start();",
+    "queue" : "Queue<Integer> queue = new LinkedList<>();",
+    "queueadd" : "queue.add(1);",
+    "queuefront" : "queue.remove();",
+    "queuepop" : "queue.remove();",
+    "stack" : "Stack<Character> stack = new Stack<>();",
+    "stackpush" : "stack.push(c);",
+    "stackpop" : "stack.pop();",
+    "stackempty" : "stack.isEmpty();",
+    "testcasesstring" : "while(scanner.hasNextLine())",
+    "testcasesint" : "sc.hasNextInt()",
+    "mimeencodes" : """Base64.Encoder encoder = Base64.getMimeEncoder();  
+          String message = ip.next();
+          String eStr = encoder.encodeToString(message.getBytes());""",
+    "throwexception" : "throw new DivisiblebyFiveException(\"Number should not be divide by five\");"  }
 
-inputs = {   "int" : "X = sc.nextInt();",
-            "string" : "X = sc.next();",
-            "line" : "String line = scanner.nextLine();",
-            "char" : "char c = scanner.next().charAt(0);",
-            "double" : "double X = sc.nextDouble();",
-            "float" : "float X = sc.nextFloat();",
-            "long" : "long X = sc.nextLong();",
-            "short" : "short X = sc.nextShort();",
-             }
+inputs = { "int" : "X = sc.nextInt();",
+    "string" : "X = sc.next();",
+    "line" : "String line = scanner.nextLine();",
+    "char" : "char c = scanner.next().charAt(0);",
+    "double" : "double X = sc.nextDouble();",
+    "float" : "float X = sc.nextFloat();",
+    "long" : "long X = sc.nextLong();",
+    "short" : "short X = sc.nextShort();",
+     }
 
 ques = { 1 : """You will be given two integers x  and y as input, you have to compute x/y. If x and y  are not 32 bit signed integers or if y is zero, exception will occur and you have to report it. Read sample Input/Output to know what to report in case of exceptions.
 
@@ -139,33 +139,33 @@ Sample Output 1
 3
 
 import java.io.*;
-import java.util.*;	
+import java.util.*;  
 import java.text.*;
 import java.math.*;
 import java.util.regex.*;
  
 class Solution {
  
-   public static void main(String[] args) {
-       /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
-   
-       Scanner scan = new Scanner(System.in);
-      
-       try {
-           int x = scan.nextInt();
-           int y = scan.nextInt();
-           System.out.println(x / y);
-       }
-       catch(InputMismatchException e) {
-           // ensure that "java.util.InputMismatchException" is printed only.
-           System.out.println(e.getClass().toString().replaceFirst("class ", ""));
-       }
-       catch(ArithmeticException e) {
-           // Print F
-           System.out.println(e);
-       }
-       scan.close();
+ public static void main(String[] args) {
+   /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+ 
+   Scanner scan = new Scanner(System.in);
+  
+   try {
+     int x = scan.nextInt();
+     int y = scan.nextInt();
+     System.out.println(x / y);
    }
+   catch(InputMismatchException e) {
+     // ensure that "java.util.InputMismatchException" is printed only.
+     System.out.println(e.getClass().toString().replaceFirst("class ", ""));
+   }
+   catch(ArithmeticException e) {
+     // Print F
+     System.out.println(e);
+   }
+   scan.close();
+ }
 }
 """,
 2 : """ Rithvik likes to play with numbers, every day he used to solve one Brain Teaser, today he attempted to solve the GAPFUL NUMBER.
@@ -179,33 +179,33 @@ Output : true(192 is a gapful number because it is divisible by 12)
 import java.util.Scanner;
 class Main
 {
-	public static void main(String[] args) {
-	    
-		final int MINIMUM = 100;
-		String input = "";
-		int first_number = 0;
-		int second_number = 0;
-		input = new Scanner(System.in).nextLine();
+  public static void main(String[] args) {
+    
+    final int MINIMUM = 100;
+    String input = "";
+    int first_number = 0;
+    int second_number = 0;
+    input = new Scanner(System.in).nextLine();
 
-		try {
-			first_number = Integer.parseInt(input);
-			if (first_number < MINIMUM) {
-				System.out.println("Input a number of at least 3 digits!");
-				return;
-			}
-		} catch (NumberFormatException nfe) {
-			System.out.println("Input a valid number!");
-			return;
-		}
+    try {
+      first_number = Integer.parseInt(input);
+      if (first_number < MINIMUM) {
+        System.out.println("Input a number of at least 3 digits!");
+        return;
+      }
+    } catch (NumberFormatException nfe) {
+      System.out.println("Input a valid number!");
+      return;
+    }
 
-	second_number = Integer.parseInt("" + input.charAt(0) + input.charAt(input.length() - 1));
+  second_number = Integer.parseInt("" + input.charAt(0) + input.charAt(input.length() - 1));
 
-		if (first_number % second_number == 0) {
-			System.out.println("True");
-		} else {
-			System.out.println("False");
-		}
-	}
+    if (first_number % second_number == 0) {
+      System.out.println("True");
+    } else {
+      System.out.println("False");
+    }
+  }
 }
 """,
 3 : """Get five integers from user and store it in an Array ARR[],next get an integer 'X' and integer 'Y' from user.
@@ -254,34 +254,34 @@ index must be 0 to 4
 import java.util.Scanner;
 class Main
 {
-    public static void main(String args[])
+  public static void main(String args[])
+  {
+    int ARR[]=new int[5];
+    int X,Y;
+    Scanner ip=new Scanner(System.in);
+    for(int i=0;i<5;i++)
+    ARR[i]=ip.nextInt();
+    
+    X=ip.nextInt();
+    Y=ip.nextInt();
+    try
     {
-        int ARR[]=new int[5];
-        int X,Y;
-        Scanner ip=new Scanner(System.in);
-        for(int i=0;i<5;i++)
-            ARR[i]=ip.nextInt();
-            
-        X=ip.nextInt();
-        Y=ip.nextInt();
-        try
-        {
-            System.out.println(ARR[X]/ARR[Y]);
-        }
-        catch(ArithmeticException e)
-        {
-            System.out.println("denominator should not be zero");
-        }
-        catch(ArrayIndexOutOfBoundsException e)
-        {
-            System.out.println("index must be 0 to 4");
-        }
-        catch(Exception e)
-        {
-            System.out.println("UnKnown Exception");
-        }
-        
+    System.out.println(ARR[X]/ARR[Y]);
     }
+    catch(ArithmeticException e)
+    {
+    System.out.println("denominator should not be zero");
+    }
+    catch(ArrayIndexOutOfBoundsException e)
+    {
+    System.out.println("index must be 0 to 4");
+    }
+    catch(Exception e)
+    {
+    System.out.println("UnKnown Exception");
+    }
+    
+  }
 }
 """,
 4 : """ Create your own exception called "IncorrectAgeException". It should display the message as “Please Enter Correct Age”. 
@@ -301,41 +301,41 @@ IncorrectAgeException: Please Enter Correct Age
 import java.util.*;
 class IncorrectAgeException extends Exception
   {
-    public IncorrectAgeException(String m)
-    {
-      super(m);
-    }
+  public IncorrectAgeException(String m)
+  {
+  super(m);
+  }
   }
 class person
   {
-    int age;
-    person (int a)
-    {
-      age=a;
-    }
-    public void checkage() throws IncorrectAgeException
-    {
-      if (age>150)
-        throw new IncorrectAgeException("Please Enter Correct Age");
-      else
-        System.out.println("Welcome");
-    }
+  int age;
+  person (int a)
+  {
+  age=a;
+  }
+  public void checkage() throws IncorrectAgeException
+  {
+  if (age>150)
+    throw new IncorrectAgeException("Please Enter Correct Age");
+  else
+    System.out.println("Welcome");
+  }
   }class Main
 {
 public static void main(String args[])
 {
-    Scanner scan=new Scanner(System.in);
-    int a;
-    a =  scan.nextInt();
+  Scanner scan=new Scanner(System.in);
+  int a;
+  a =  scan.nextInt();
   person p = new person(a);
   try
-    {
-      p.checkage();
-    }
+  {
+  p.checkage();
+  }
   catch(IncorrectAgeException e)
-    {
-      System.out.println(e);
-    }
+  {
+  System.out.println(e);
+  }
   
   
   }
@@ -354,7 +354,7 @@ qwerty
 asdfg
 mnop
 cvbn
-poiuy	
+poiuy  
 bhuijn
 sge
 dgdfgasf
@@ -404,12 +404,12 @@ Scanner ip=new Scanner(System.in);
 LinkedList<String>list=new LinkedList<String>();
 for(int i=0;i<10;i++)
 {
-    list.add(ip.next());    
+  list.add(ip.next());  
 }
 
 Collections.swap(list,1,4);
 for(String str:list)
-    System.out.println(str);
+  System.out.println(str);
 }
 }
 """,
@@ -418,15 +418,15 @@ If all numbers are same i.e no second largest number then print -1.
 
 
 Sample Input 1
-5   5   5   5   5   5   5   5   5   5
+5 5 5 5 5 5 5 5 5 5
 Sample Output 1
 -1
 Sample Input 2
-1  2   3   4   5   6   7   8  9  0
+1  2 3 4 5 6 7 8  9  0
 Sample Output 2
 8
 Sample Input 3
-7   7   7    7   7   6  6   6   6  3 
+7 7 7  7 7 6  6 6 6  3 
 Sample Output 3
 6
 
@@ -440,16 +440,16 @@ Scanner ip=new Scanner(System.in);
 TreeSet<Integer> ts=new TreeSet<Integer>();
 for(int i=0;i<10;i++)
 {
-    ts.add(ip.nextInt());
+  ts.add(ip.nextInt());
 }
 ArrayList<Integer> list=new ArrayList<Integer>(ts);
 if(list.size()>1)
 {
-    System.out.println(list.get(list.size()-2));
+  System.out.println(list.get(list.size()-2));
 }
 else
 {
-    System.out.println("-1");
+  System.out.println("-1");
 }
 }
 }
@@ -457,7 +457,7 @@ else
 7 : """ Write a java program to create a own exception called DivisiblebyFiveException it should display an message called "Number should not be divided by five". Get an input from the user.
 If number divisble by 5 it should raise an exception called DivisiblebyFiveException.
 Otherwise Print Valid Number.
-	
+  
 Input Format
 565
 Output Format
@@ -471,29 +471,29 @@ import java.util.Scanner;
 import java.io.*;
 class DivisiblebyFiveException extends Exception 
 {
-    public DivisiblebyFiveException(String message)
-    {
-        super(message);
-    }
+  public DivisiblebyFiveException(String message)
+  {
+    super(message);
+  }
 }
 class exe
 {  
-    public static void main(String[] args)
+  public static void main(String[] args)
+  {
+    Scanner sc = new Scanner(System.in);
+    int x = sc.nextInt();
+    try
     {
-        Scanner sc = new Scanner(System.in);
-        int x = sc.nextInt();
-        try
-        {
-            if(x%5==0)
-                throw new DivisiblebyFiveException("Number should not be divide by five");
-            else
-             System.out.print("Valid Number");
-        }
-        catch(Exception e)
-        {
-            System.out.print(e);
-        }
+    if(x%5==0)
+      throw new DivisiblebyFiveException("Number should not be divide by five");
+    else
+     System.out.print("Valid Number");
     }
+    catch(Exception e)
+    {
+    System.out.print(e);
+    }
+  }
 }
 """,
 8 : """ Create three threads namely Thread1,Thread2,Thread3 in java.,
@@ -508,48 +508,48 @@ Sample Output 1
 Sample Input 2
 Sample Output 2
  2 4 6 8 10 12 14 16 18 20 5 10 15 20 25 30 35 40 45 50 11 22 33
-	
+  
 class A extends Thread
 {
-    public void run()
+  public void run()
+  {
+    for(int i=1;i<=10;i++)
     {
-        for(int i=1;i<=10;i++)
-        {
-            System.out.print(" "+i*2);
-        }
+    System.out.print(" "+i*2);
     }
+  }
 }
 class B extends Thread
 {
-    public void run()
+  public void run()
+  {
+    for(int i=1;i<=10;i++)
     {
-        for(int i=1;i<=10;i++)
-        {
-            System.out.print(" "+i*5);
-        }
+    System.out.print(" "+i*5);
     }
+  }
 }
 class C extends Thread
 {
-    public void run()
+  public void run()
+  {
+    for(int i=1;i<=10;i++)
     {
-        for(int i=1;i<=10;i++)
-        {
-            System.out.print(" "+i*11);
-        }
+    System.out.print(" "+i*11);
     }
+  }
 }
 
 
 class MyClass {
-    public static void main(String args[]) {
-      A t1=new A();
-      B t2=new B();
-      C t3=new C();
-      t1.start();
-      t2.start();
-      t3.start();
-    }
+  public static void main(String args[]) {
+  A t1=new A();
+  B t2=new B();
+  C t3=new C();
+  t1.start();
+  t2.start();
+  t3.start();
+  }
 }
 """,
 9 : """ Find the middle of a given linked list
@@ -587,70 +587,70 @@ The middle element is [3]
 import java.util.*;
 class LinkedList
 {
-    Node head; 
-    class Node
+  Node head; 
+  class Node
+  {
+    int data;
+    Node next;
+    Node(int d)
     {
-        int data;
-        Node next;
-        Node(int d)
-        {
-            data = d;
-            next = null;
-        }
+    data = d;
+    next = null;
     }
+  }
  
-    /* Function to print middle of linked list */
-    void printMiddle()
+  /* Function to print middle of linked list */
+  void printMiddle()
+  {
+    Node slow_ptr = head;
+    Node fast_ptr = head;
+    if (head != null)
     {
-        Node slow_ptr = head;
-        Node fast_ptr = head;
-        if (head != null)
-        {
-            while (fast_ptr != null && fast_ptr.next != null)
-            {
-                fast_ptr = fast_ptr.next.next;
-                slow_ptr = slow_ptr.next;
-            }
-            System.out.println("The middle element is [" +
-                                slow_ptr.data + "] \n");
-        }
+    while (fast_ptr != null && fast_ptr.next != null)
+    {
+      fast_ptr = fast_ptr.next.next;
+      slow_ptr = slow_ptr.next;
     }
+    System.out.println("The middle element is [" +
+            slow_ptr.data + "] \n");
+    }
+  }
  
+  
+  public void push(int new_data)
+  {
     
-    public void push(int new_data)
+    Node new_node = new Node(new_data);
+    new_node.next = head;
+ 
+    head = new_node;
+  }
+ 
+ 
+  public void printList()
+  {
+    Node tnode = head;
+    while (tnode != null)
     {
-        
-        Node new_node = new Node(new_data);
-        new_node.next = head;
- 
-        head = new_node;
+    System.out.print(tnode.data+"->");
+    tnode = tnode.next;
     }
+    System.out.println("NULL");
+  }
  
- 
-    public void printList()
-    {
-        Node tnode = head;
-        while (tnode != null)
-        {
-            System.out.print(tnode.data+"->");
-            tnode = tnode.next;
-        }
-        System.out.println("NULL");
-    }
- 
-    
+  
 }
 class Main {
-    public static void main(String [] args)
-    {
-        LinkedList llist = new LinkedList();
-        Scanner scan =  new Scanner(System.in);
-        int n =  scan.nextInt();
-        for (int i=1;i<=n;i++)
-            llist.push(scan.nextInt());
-        llist.printList();
-        llist.printMiddle();
-    }}
+  public static void main(String [] args)
+  {
+    LinkedList llist = new LinkedList();
+    Scanner scan =  new Scanner(System.in);
+    int n =  scan.nextInt();
+    for (int i=1;i<=n;i++)
+    llist.push(scan.nextInt());
+    llist.printList();
+    llist.printMiddle();
+  }}
 """,
 10 : """ A string containing only parentheses is balanced if the following is true: 1. if it is an empty string 2. if A and B are correct, AB is correct, 3. if A is correct, (A) and {A} and [A] are also correct.
 
@@ -683,37 +683,37 @@ import java.text.*;
 import java.math.*;
 import java.util.regex.*;
 class Solution {
-   public static void main(String[] args) {
-       Scanner scanner = new Scanner(System.in);
-       while(scanner.hasNextLine()) {
-           Stack<Character> stack = new Stack<>();
-           String line = scanner.nextLine();
-           for(char c : line.toCharArray()) {
-               if(c == '{' || c == '(' || c == '[') {
-                  stack.push(c);
-                  continue;
-               }                        
-         if(c == '}' && !stack.isEmpty() && stack.peek() == '{') {
-                   stack.pop();
-                   continue;
-               }
-              
-        if(c == ')' && !stack.isEmpty() && stack.peek() == '('){
-                   stack.pop();
-                   continue;
-               }
-       if(c == ']' && !stack.isEmpty() && stack.peek() == '['){
-                   stack.pop();
-                   continue;
-              }              
-               if(c == '}' || c == ')' || c == ']') {
-                   stack.push(c);
-                   break;
-               }  
-           }
-           System.out.println(stack.isEmpty());
-       }
+ public static void main(String[] args) {
+   Scanner scanner = new Scanner(System.in);
+   while(scanner.hasNextLine()) {
+     Stack<Character> stack = new Stack<>();
+     String line = scanner.nextLine();
+     for(char c : line.toCharArray()) {
+     if(c == '{' || c == '(' || c == '[') {
+      stack.push(c);
+      continue;
+     }        
+   if(c == '}' && !stack.isEmpty() && stack.peek() == '{') {
+       stack.pop();
+       continue;
+     }
+      
+    if(c == ')' && !stack.isEmpty() && stack.peek() == '('){
+       stack.pop();
+       continue;
+     }
+   if(c == ']' && !stack.isEmpty() && stack.peek() == '['){
+       stack.pop();
+       continue;
+      }      
+     if(c == '}' || c == ')' || c == ']') {
+       stack.push(c);
+       break;
+     }  
+     }
+     System.out.println(stack.isEmpty());
    }
+ }
 }
 """,
 11 : """ Base64.Encoder encoder = Base64.getMimeEnocder();
@@ -727,7 +727,7 @@ Encode MIME String
 Sample Input 1
 HELLO
 Sample Output 1
-SEVMTE8=	
+SEVMTE8=  
 Sample Input 2
 good morning
 Sample Output 2
@@ -736,17 +736,17 @@ Z29vZA==
 import java.util.*;
 class Main
 {  
-    public static void main(String[] args) 
-    {  
-        // Getting MIME encoder  
-        Scanner ip=new Scanner(System.in);
-        Base64.Encoder encoder = Base64.getMimeEncoder();  
-        String message = ip.next();
-        String eStr = encoder.encodeToString(message.getBytes());  
-        System.out.println(eStr);  
-          
-        
-    }  
+  public static void main(String[] args) 
+  {  
+    // Getting MIME encoder  
+    Scanner ip=new Scanner(System.in);
+    Base64.Encoder encoder = Base64.getMimeEncoder();  
+    String message = ip.next();
+    String eStr = encoder.encodeToString(message.getBytes());  
+    System.out.println(eStr);  
+    
+    
+  }  
 }  
 """,
 12 : """ Neha is carrying out research in English Literature. Her research mainly focuses on English alphabets. As a part of her research, she wanted to know which characters are frequently used in English. She knew that this task would consume more time if carried out manually. Since you are a technical geek she wanted to check with you whether this can be done using computers at no time. You narrow down the problem and first compute the frequency of each character in a given word. And later you can extend this program to compute the character frequency in a novel. For this first, get a word as input and compute the frequency of all the character in a word. The A map will be your best choice to store frequencies for each character. Display all the character in alphabetical order and with their respective frequencies. Space is out of scope for this experiment.
@@ -827,35 +827,35 @@ java.lang.Exception: n or p should not be negative.
 import java.util.Scanner;
 import static java.lang.Math.pow;
 class MyCalculator {
-   
-   Create the method long power(int, int) here.
-   
-    public long power(final int n, final int p) throws Exception {
-       if (n < 0 || p < 0) {
-           throw new Exception("n or p should not be negative.");
-       } else if (n == 0 && p == 0) {
-           throw new Exception("n and p should not be zero.");
-       }
-       return (long)pow(n, p);
-    }
+ 
+ Create the method long power(int, int) here.
+ 
+  public long power(final int n, final int p) throws Exception {
+   if (n < 0 || p < 0) {
+     throw new Exception("n or p should not be negative.");
+   } else if (n == 0 && p == 0) {
+     throw new Exception("n and p should not be zero.");
+   }
+   return (long)pow(n, p);
+  }
 }
  
 class MyClass {
-   public static final MyCalculator my_calculator = new MyCalculator();
-   public static final Scanner in = new Scanner(System.in);
+ public static final MyCalculator my_calculator = new MyCalculator();
+ public static final Scanner in = new Scanner(System.in);
   
-   public static void main(String[] args) {
-       while (in .hasNextInt()) {
-           int n = in .nextInt();
-           int p = in .nextInt();
-          
-           try {
-               System.out.println(my_calculator.power(n, p));
-           } catch (Exception e) {
-               System.out.println(e);
-           }
-       }
+ public static void main(String[] args) {
+   while (in .hasNextInt()) {
+     int n = in .nextInt();
+     int p = in .nextInt();
+    
+     try {
+     System.out.println(my_calculator.power(n, p));
+     } catch (Exception e) {
+     System.out.println(e);
+     }
    }
+ }
 }
 """,
 14 : """ Consider you have two sets and each set contains 5 integers,your task is to print the non common elements in both the sets.
@@ -886,9 +886,9 @@ Scanner ip=new Scanner(System.in);
 Set<Integer> a = new HashSet<Integer>();
 Set<Integer> b = new HashSet<Integer>(); 
 for(int i=0;i<5;i++)
-    a.add(ip.nextInt());
+  a.add(ip.nextInt());
 for(int i=0;i<5;i++)
-    b.add(ip.nextInt());
+  b.add(ip.nextInt());
 
 Set<Integer> union = new HashSet<Integer>(a); 
 union.addAll(b); 
@@ -897,11 +897,11 @@ intersection.retainAll(b);
 union.removeAll(intersection);
 
 if(union.size()==0)
-    System.out.println("-1");
+  System.out.println("-1");
 else
 {
 for (int x:union)
-    System.out.print(" "+x);
+  System.out.print(" "+x);
 }
 }
 }
@@ -911,7 +911,7 @@ If all numbers are same i.e no second largest number then print -1.
 [ Hint:- you may use any Collection classes like ArrayList,TreeSet,Hashset,LinkedList..etc]
 
 Sample Input 1
-7   7   7    7   7   6  6   6   6  3 
+7 7 7  7 7 6  6 6 6  3 
 Sample Output 1
 6
 Sample Input 2
@@ -929,16 +929,16 @@ Scanner ip=new Scanner(System.in);
 TreeSet<Integer> ts=new TreeSet<Integer>();
 for(int i=0;i<10;i++)
 {
-    ts.add(ip.nextInt());
+  ts.add(ip.nextInt());
 }
 ArrayList<Integer> list=new ArrayList<Integer>(ts);
 if(list.size()>1)
 {
-    System.out.println(list.get(list.size()-2));
+  System.out.println(list.get(list.size()-2));
 }
 else
 {
-    System.out.println("-1");
+  System.out.println("-1");
 }
 }
 }
@@ -1045,70 +1045,70 @@ The middle element is [3]
 import java.util.*;
 class LinkedList
 {
-    Node head; 
-    class Node
+  Node head; 
+  class Node
+  {
+    int data;
+    Node next;
+    Node(int d)
     {
-        int data;
-        Node next;
-        Node(int d)
-        {
-            data = d;
-            next = null;
-        }
+    data = d;
+    next = null;
     }
+  }
  
-    /* Function to print middle of linked list */
-    void printMiddle()
+  /* Function to print middle of linked list */
+  void printMiddle()
+  {
+    Node slow_ptr = head;
+    Node fast_ptr = head;
+    if (head != null)
     {
-        Node slow_ptr = head;
-        Node fast_ptr = head;
-        if (head != null)
-        {
-            while (fast_ptr != null && fast_ptr.next != null)
-            {
-                fast_ptr = fast_ptr.next.next;
-                slow_ptr = slow_ptr.next;
-            }
-            System.out.println("The middle element is [" +
-                                slow_ptr.data + "] \n");
-        }
+    while (fast_ptr != null && fast_ptr.next != null)
+    {
+      fast_ptr = fast_ptr.next.next;
+      slow_ptr = slow_ptr.next;
     }
+    System.out.println("The middle element is [" +
+            slow_ptr.data + "] \n");
+    }
+  }
  
+  
+  public void push(int new_data)
+  {
     
-    public void push(int new_data)
+    Node new_node = new Node(new_data);
+    new_node.next = head;
+ 
+    head = new_node;
+  }
+ 
+ 
+  public void printList()
+  {
+    Node tnode = head;
+    while (tnode != null)
     {
-        
-        Node new_node = new Node(new_data);
-        new_node.next = head;
- 
-        head = new_node;
+    System.out.print(tnode.data+"->");
+    tnode = tnode.next;
     }
+    System.out.println("NULL");
+  }
  
- 
-    public void printList()
-    {
-        Node tnode = head;
-        while (tnode != null)
-        {
-            System.out.print(tnode.data+"->");
-            tnode = tnode.next;
-        }
-        System.out.println("NULL");
-    }
- 
-    
+  
 }
 class Main {
-    public static void main(String [] args)
-    {
-        LinkedList llist = new LinkedList();
-        Scanner scan =  new Scanner(System.in);
-        int n =  scan.nextInt();
-        for (int i=1;i<=n;i++)
-            llist.push(scan.nextInt());
-        llist.printList();
-        llist.printMiddle();
-    }}
+  public static void main(String [] args)
+  {
+    LinkedList llist = new LinkedList();
+    Scanner scan =  new Scanner(System.in);
+    int n =  scan.nextInt();
+    for (int i=1;i<=n;i++)
+    llist.push(scan.nextInt());
+    llist.printList();
+    llist.printMiddle();
+  }}
 """,
 18 : """ .A palindrome is a word, phrase, number, or other sequence of characters which reads the same backwards and forwards. Can you determine if a given string, s, is a palindrome?
 To solve this challenge, we must first take each character in s, enqueue it in a queue, and also push that same character onto a stack. Once that's done, we must dequeue the first character from the queue and pop the top character off the stack, then compare the two characters to see if they are the same; as long as the characters match, we continue dequeueing, popping, and comparing each character until our containers are empty (a non-match means s isn't a palindrome).
@@ -1135,60 +1135,60 @@ import java.io.*;
 import java.util.*;
  
 class MyClass {
-   // Write your code here.
+ // Write your code here.
 Queue<Character> queue;
-   Stack<Character> stack;
+ Stack<Character> stack;
  
-   MyClass(){
-       this.queue = new LinkedList<Character>();
-       this.stack = new Stack<Character>();
-   }
+ MyClass(){
+   this.queue = new LinkedList<Character>();
+   this.stack = new Stack<Character>();
+ }
  
-   void pushCharacter(char ch){
-       this.stack.push(ch);
-   }
+ void pushCharacter(char ch){
+   this.stack.push(ch);
+ }
   
-   void enqueueCharacter(char ch){
-       this.queue.add(ch);
-   }
+ void enqueueCharacter(char ch){
+   this.queue.add(ch);
+ }
   
-   char popCharacter(){
-       return this.stack.pop();
+ char popCharacter(){
+   return this.stack.pop();
+ }
+ 
+ char dequeueCharacter(){
+   return this.queue.remove();
+ }
+ public static void main(String[] args) {
+   Scanner scan = new Scanner(System.in);
+   String input = scan.nextLine();
+   scan.close();
+ 
+   // Convert input String to an array of characters:
+   char[] s = input.toCharArray();
+ 
+   // Create a Solution object:
+   MyClass p = new MyClass();
+ 
+   // Enqueue/Push all chars to their respective data structures:
+   for (char c : s) {
+     p.pushCharacter(c);
+     p.enqueueCharacter(c);
    }
  
-   char dequeueCharacter(){
-       return this.queue.remove();
+   // Pop/Dequeue the chars at the head of both data structures and compare them:
+   boolean isPalindrome = true;
+   for (int i = 0; i < s.length/2; i++) {
+     if (p.popCharacter() != p.dequeueCharacter()) {
+     isPalindrome = false;     
+     break;
+     }
    }
-   public static void main(String[] args) {
-       Scanner scan = new Scanner(System.in);
-       String input = scan.nextLine();
-       scan.close();
  
-       // Convert input String to an array of characters:
-       char[] s = input.toCharArray();
- 
-       // Create a Solution object:
-       MyClass p = new MyClass();
- 
-       // Enqueue/Push all chars to their respective data structures:
-       for (char c : s) {
-           p.pushCharacter(c);
-           p.enqueueCharacter(c);
-       }
- 
-       // Pop/Dequeue the chars at the head of both data structures and compare them:
-       boolean isPalindrome = true;
-       for (int i = 0; i < s.length/2; i++) {
-           if (p.popCharacter() != p.dequeueCharacter()) {
-               isPalindrome = false;               
-               break;
-           }
-       }
- 
-       //Finally, print whether string s is palindrome or not.
-       System.out.println( "The word, " + input + ", is "
-                          + ( (!isPalindrome) ? "not a palindrome." : "a palindrome." ) );
-   }
+   //Finally, print whether string s is palindrome or not.
+   System.out.println( "The word, " + input + ", is "
+          + ( (!isPalindrome) ? "not a palindrome." : "a palindrome." ) );
+ }
 }
 
 """,
@@ -1198,7 +1198,7 @@ Input Format:
 The first Line ‘N’ represents number of elements in the ArrayList.
 The next N-Lines represents values of the ArrayList object.
 Output Format:
-           The sorted ArrayList
+     The sorted ArrayList
 
 
 Sample Input :
@@ -1232,16 +1232,16 @@ class Main
 {
 public static void main(String args[])
 {
-    int N;
-    Scanner ip=new Scanner(System.in);
-    N=ip.nextInt();
-    ArrayList<Integer> num=new ArrayList<Integer>();
-    for(int i=0;i<N;i++)
-    {
-        num.add(ip.nextInt());
-    }
-    Collections.sort(num,Collections.reverseOrder());
-    System.out.println(num);
+  int N;
+  Scanner ip=new Scanner(System.in);
+  N=ip.nextInt();
+  ArrayList<Integer> num=new ArrayList<Integer>();
+  for(int i=0;i<N;i++)
+  {
+    num.add(ip.nextInt());
+  }
+  Collections.sort(num,Collections.reverseOrder());
+  System.out.println(num);
 }
 }
 
@@ -1249,44 +1249,44 @@ public static void main(String args[])
 
 @app.get("/")
 async def redirect_to_website():
-    return RedirectResponse(url="https://lms.vit.ac.in/")
+  return RedirectResponse(url="https://lms.vit.ac.in/")
 
 @app.get("/codes/")
 async def read_item(args: str = "scanner"):
-    return codes[args]
+  return codes[args]
 
 @app.get("/inputs/")
 async def read_item(args: str = "string"):
-    return inputs[args]
+  return inputs[args]
 
 @app.get("/imports/")
 async def read_item(args: str = "thread"):
-    return imports[args]
+  return imports[args]
 
 @app.get("/ques/")
 async def read_item(args: int = 1):
-    return ques[args]
+  return ques[args]
 
 @app.get("/index/")
 async def read_item(args: str = "default"):
-    if ( args == "default" ):
-        return "codes, inputs, imports, ques => to find keys = /index/?args=codes"
-    if ( args == "ques" ):
-        return "Programs from 1 to 19" + "       \n USE AS => /ques/?args=<index>"
-    if ( args == "codes" ):
-        return " ".join(codes.keys()) + "       \n USE AS => /codes/?args=<key>"
-    if ( args == "inputs" ):
-        return " ".join(inputs.keys()) + "       \n USE AS => /inputs/?args=<key>"
-    if ( args == "imports" ):
-        return " ".join(imports.keys()) + "       \n USE AS => /imports/?args=<key>"
+  if ( args == "default" ):
+    return "codes, inputs, imports, ques => to find keys = /index/?args=codes"
+  if ( args == "ques" ):
+    return "Programs from 1 to 19" + "   \n USE AS => /ques/?args=<index>"
+  if ( args == "codes" ):
+    return " ".join(codes.keys()) + "   \n USE AS => /codes/?args=<key>"
+  if ( args == "inputs" ):
+    return " ".join(inputs.keys()) + "   \n USE AS => /inputs/?args=<key>"
+  if ( args == "imports" ):
+    return " ".join(imports.keys()) + "   \n USE AS => /imports/?args=<key>"
 
 @app.get("/exception/")
 def fnc():
-    return " ".join(exception)
+  return " ".join(exception)
 
 
 
 # import uvicorn
 
 # if __name__ == "__main__":
-#   uvicorn.run("server.api:app", host="0.0.0.0", port=8000, reload=True)
+# uvicorn.run("server.api:app", host="0.0.0.0", port=8000, reload=True)
