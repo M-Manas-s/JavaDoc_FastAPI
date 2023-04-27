@@ -1247,6 +1247,14 @@ public static void main(String args[])
 
 """ }
 
+quesindex = [ "x,y are not 32 bit signed int", "Rithvik GAPFUL", "ARR[X]/ARR[Y]",
+              "IncorrectAgeException", "Swap LinkedList<String>", "print the second largest number",
+              "DivisiblebyFiveException", "Thread1,Thread2,Thread3", "middle of a given linked list",
+              "parentheses is balanced", "Base64 Algorithm", "Neha is carrying out research in English Literature",
+              "MyCalculator", "non common elements in both the sets", "print the second largest number", 
+              "Raju is a little boy", "remove duplicate elements in an array", "string, s, is a palindrome?",
+               "Task:Collection Interface" ]
+
 @app.get("/")
 async def redirect_to_website():
   return RedirectResponse(url="https://lms.vit.ac.in/")
@@ -1272,7 +1280,10 @@ async def read_item(args: str = "default"):
   if ( args == "default" ):
     return "codes, inputs, imports, ques => to find keys = /index/?args=codes"
   if ( args == "ques" ):
-    return "Programs from 1 to 19" + "   \n USE AS => /ques/?args=<index>"
+    s = ""
+    for i in range(0,19):
+      s += str(i+1) + ")" + quesindex[i] + "  ";
+    return s + "   \n USE AS => /ques/?args=<index>"
   if ( args == "codes" ):
     return " ".join(codes.keys()) + "   \n USE AS => /codes/?args=<key>"
   if ( args == "inputs" ):
